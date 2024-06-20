@@ -1,0 +1,16 @@
+// Simple Double Top Indicator
+//@version=5
+strategy("Simple Double Top")
+
+color GRAY   = #808080ff
+color LIME   = #00FF00ff
+color MAROON = #800000ff
+color ORANGE = #FF8000ff
+color PINK   = #FF0080ff
+color TEAL   = #008080ff
+
+plot(close, '', LIME, 1, force_overlay = true)
+distanceBack = input.int(200)
+lastHiBar = ta.lowestbars(low, distanceBack)
+
+line.new(x1=bar_index[100], y1=open, x2=bar_index, y2=close, extend=extend.right, color=ORANGE, force_overlay=true)
